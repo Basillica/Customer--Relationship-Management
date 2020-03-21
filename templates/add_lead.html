@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New Lead</title>
+{% endblock %}
+
+{% block body %}
+  <div class="content">
+    <h1 style="text-align: center">Add a New Lead</h1>
+    <div class="form">
+      <form action="/add_lead" method="POST">
+          <p>Plese add a new Lead below:</p>
+          <label for="name">Name:</label>
+          <p><input type = "text" id="name" name = "name" /></p>
+          <label for="company">Comapany Name:</label>
+          <p><input type = "text" id="company "name = "company"/></p>
+          <label for="phone">Phone Number:</label>
+          <p><input type = "text" id="phone" name = "phone"/></p>
+          <label for="email">Email:</label>
+          <p><input type = "text" id="email" name = "email"/></p>
+          <input type="submit" value="Add a Lead">
+      </form>
+    </div>
+  </div>
+{% endblock %}

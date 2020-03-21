@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update Touch</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Task</h1>
+
+    <div class="form">
+        <form action="/update_touch/{{touch.id}}" method="POST"></p>
+            <p><input type="hidden" value="{{touch.id}}" name="oldId"></p>
+            <label for="description">Description:</label>
+            <p><input type="text" name="description"  id="description"  value="{{touch.description}}"></p>
+            <p><input type="submit" value="Update Touch">
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Leads</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Leads</h1>
+    <h3 style="text-align: center"> ( Potential Customers )</h3>
+    {% if lead|length < 1 %}
+    <h4 style="text-align: center">There are no leads. Create one below!</h4>
+    {% else %}
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:10px;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+    <table border="1" class="tg">
+        <tr>
+            <!-- <th class="tg-0lax"> Item </th> -->
+            <th class="tg-0lax"> Name </th>
+            <th class="tg-0lax"> Company </th>
+            <th class="tg-0lax"> Phone</th>
+            <th class="tg-0lax"> Email</th>
+            <th class="tg-0lax"> Actions</th>
+        </tr>
+        {% for l in lead %}
+            <tr>
+                <!--<td class="tg-0lax">{{ l.id }}</td> -->
+                <td class="tg-0lax">{{ l.name }}</td>
+                <td class="tg-0lax">{{ l.company }}</td>
+                <td class="tg-0lax">{{ l.phone }}</td>
+                <td class="tg-0lax">{{ l.email }}</td>
+                <td class="tg-0lax">
+                    <a href="/delete_lead/{{l.id}}">Delete Lead</a>
+                    <br>
+                    <a href="/update_leads/{{l.id}}">Update Lead</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <p><a href="/add_lead" class="button"> Add Lead </a></p>
+</div>
+{% endblock %}
